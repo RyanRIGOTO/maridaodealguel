@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('telefone')->nullable();
             $table->string('email')->unique();
-            $table->foreignUlid('endereco')->nullable();
+            $table->foreignId('endereco')->nullable()->constrained('enderecos');
             $table->date('data_nascimento')->nullable();
             $table->string('status')->default('ativo');
             $table->string('password');

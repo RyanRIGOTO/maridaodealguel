@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Prestador - Maridão de Aluguel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="layout-with-sidebar">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo mb-xl">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        Maridão
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="/dashboard/prestador" class="sidebar-link active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="/meus-servicos" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+          Meus Serviços
+        </a>
+        <a href="/agenda" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Agenda
+        </a>
+        <a href="/chat" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Chat
+          <span class="badge badge-danger" style="margin-left: auto;">5</span>
+        </a>
+        <a href="/avaliacoes" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          Avaliações
+        </a>
+        <a href="/perfil" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          Meu Perfil
+        </a>
+      </nav>
+
+      <div class="sidebar-footer" style="margin-top: auto; padding-top: var(--spacing-lg); border-top: 1px solid var(--border);">
+        <a href="/logout" class="sidebar-link text-danger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Sair
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Olá, João!</h1>
+          <p class="page-description">Gerencie seus serviços e agendamentos</p>
+        </div>
+        <button class="btn btn-primary" onclick="openServicoModal()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Cadastrar Serviço
+        </button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span class="stat-card-title">Serviços Realizados</span>
+            <div class="stat-card-icon primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-card-value">48</div>
+          <div class="stat-card-change positive">+8 este mês</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span class="stat-card-title">Agendamentos Pendentes</span>
+            <div class="stat-card-icon warning">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-card-value">6</div>
+          <div class="stat-card-change">Aguardando ação</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span class="stat-card-title">Avaliação Média</span>
+            <div class="stat-card-icon success">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-card-value">4.8</div>
+          <div class="stat-card-change">32 avaliações</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span class="stat-card-title">Ganhos do Mês</span>
+            <div class="stat-card-icon primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-card-value">R$ 4.250</div>
+          <div class="stat-card-change positive">+15% vs mês anterior</div>
+        </div>
+      </div>
+
+      <!-- Agendamentos Pendentes -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Agendamentos Pendentes</h2>
+          <span class="badge badge-warning">6 pendentes</span>
+        </div>
+
+        <div class="agendamentos-list">
+          <!-- Aguardando Confirmação -->
+          <div class="agendamento-card agendamento-pending">
+            <div class="avatar">MS</div>
+            <div class="agendamento-info">
+              <div class="agendamento-title">Conserto de Torneira</div>
+              <div class="agendamento-meta">Maria Santos - Amanhã, 14:00</div>
+              <div class="agendamento-endereco text-xs text-muted">Rua das Flores, 123 - Centro</div>
+            </div>
+            <div class="agendamento-actions">
+              <button class="btn btn-success btn-sm" onclick="confirmarAgendamento(1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Confirmar
+              </button>
+              <button class="btn btn-danger btn-sm" onclick="cancelarAgendamento(1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"/>
+                  <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+                Cancelar
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirmado - Aguardando Execução -->
+          <div class="agendamento-card agendamento-confirmed">
+            <div class="avatar">PC</div>
+            <div class="agendamento-info">
+              <div class="agendamento-title">Instalação de Tomadas</div>
+              <div class="agendamento-meta">Pedro Costa - Hoje, 16:00</div>
+              <div class="agendamento-endereco text-xs text-muted">Av. Brasil, 456 - Jardins</div>
+            </div>
+            <div class="agendamento-actions">
+              <span class="badge badge-success">Confirmado</span>
+              <button class="btn btn-primary btn-sm" onclick="concluirAgendamento(2)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                Concluir
+              </button>
+              <button class="btn btn-danger btn-sm" onclick="cancelarAgendamento(2)">
+                Cancelar
+              </button>
+            </div>
+          </div>
+
+          <!-- Outro Pendente -->
+          <div class="agendamento-card agendamento-pending">
+            <div class="avatar">AF</div>
+            <div class="agendamento-info">
+              <div class="agendamento-title">Pintura de Sala</div>
+              <div class="agendamento-meta">Ana Ferreira - 15/04, 08:00</div>
+              <div class="agendamento-endereco text-xs text-muted">Rua do Sol, 789 - Vila Nova</div>
+            </div>
+            <div class="agendamento-actions">
+              <button class="btn btn-success btn-sm" onclick="confirmarAgendamento(3)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Confirmar
+              </button>
+              <button class="btn btn-danger btn-sm" onclick="cancelarAgendamento(3)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"/>
+                  <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+                Cancelar
+              </button>
+            </div>
+          </div>
+
+          <!-- Em Andamento -->
+          <div class="agendamento-card agendamento-progress">
+            <div class="avatar">RL</div>
+            <div class="agendamento-info">
+              <div class="agendamento-title">Reparo Elétrico</div>
+              <div class="agendamento-meta">Roberto Lima - Em andamento</div>
+              <div class="agendamento-endereco text-xs text-muted">Rua dos Pinheiros, 321 - Centro</div>
+            </div>
+            <div class="agendamento-actions">
+              <span class="badge badge-primary">Em Andamento</span>
+              <button class="btn btn-success btn-sm" onclick="concluirAgendamento(4)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                Concluir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meus Serviços -->
+      <div class="card mt-lg">
+        <div class="card-header">
+          <h2 class="card-title">Meus Serviços Cadastrados</h2>
+          <button class="btn btn-outline btn-sm" onclick="openServicoModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Novo Serviço
+          </button>
+        </div>
+
+        <div class="servicos-table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Serviço</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="font-semibold">Conserto de Torneira</div>
+                  <div class="text-xs text-muted">Inclui mão de obra e materiais básicos</div>
+                </td>
+                <td><span class="badge badge-primary">Hidráulica</span></td>
+                <td class="font-semibold">R$ 120,00</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+                <td>
+                  <div class="flex gap-sm">
+                    <button class="btn btn-outline btn-sm">Editar</button>
+                    <button class="btn btn-danger btn-sm">Remover</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="font-semibold">Instalação de Tomadas</div>
+                  <div class="text-xs text-muted">Por ponto de tomada</div>
+                </td>
+                <td><span class="badge badge-warning">Elétrica</span></td>
+                <td class="font-semibold">R$ 80,00</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+                <td>
+                  <div class="flex gap-sm">
+                    <button class="btn btn-outline btn-sm">Editar</button>
+                    <button class="btn btn-danger btn-sm">Remover</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="font-semibold">Pintura de Ambiente</div>
+                  <div class="text-xs text-muted">Por m² - material não incluso</div>
+                </td>
+                <td><span class="badge badge-success">Pintura</span></td>
+                <td class="font-semibold">R$ 35,00/m²</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+                <td>
+                  <div class="flex gap-sm">
+                    <button class="btn btn-outline btn-sm">Editar</button>
+                    <button class="btn btn-danger btn-sm">Remover</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Cadastrar Serviço -->
+  <div class="modal-overlay" id="servicoModal" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="font-semibold">Cadastrar Novo Serviço</h3>
+        <button class="btn btn-icon" onclick="closeServicoModal()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/servicos" method="POST">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+          <div class="form-group">
+            <label class="form-label" for="nome_servico">Nome do Serviço *</label>
+            <input type="text" id="nome_servico" name="nome" class="form-input" placeholder="Ex: Conserto de Torneira" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="categoria_servico">Categoria *</label>
+            <select id="categoria_servico" name="categoria_id" class="form-select" required>
+              <option value="">Selecione uma categoria</option>
+              <option value="1">Hidráulica</option>
+              <option value="2">Elétrica</option>
+              <option value="3">Pintura</option>
+              <option value="4">Marcenaria</option>
+              <option value="5">Alvenaria</option>
+              <option value="6">Jardinagem</option>
+              <option value="7">Limpeza</option>
+              <option value="8">Montagem de Móveis</option>
+              <option value="9">Ar Condicionado</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="descricao_servico">Descrição *</label>
+            <textarea id="descricao_servico" name="descricao" class="form-textarea" placeholder="Descreva o serviço, o que está incluso, tempo estimado..." required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="preco_servico">Preço (R$) *</label>
+              <input type="number" id="preco_servico" name="preco" class="form-input" placeholder="0,00" step="0.01" min="0" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="tipo_preco">Tipo de Preço *</label>
+              <select id="tipo_preco" name="tipo_preco" class="form-select" required>
+                <option value="fixo">Preço Fixo</option>
+                <option value="hora">Por Hora</option>
+                <option value="m2">Por m²</option>
+                <option value="orcamento">Sob Orçamento</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tempo_estimado">Tempo Estimado</label>
+            <input type="text" id="tempo_estimado" name="tempo_estimado" class="form-input" placeholder="Ex: 2 horas, 1 dia">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Cadastrar Serviço
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Cancelar -->
+  <div class="modal-overlay" id="cancelarModal" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="font-semibold">Cancelar Agendamento</h3>
+        <button class="btn btn-icon" onclick="closeCancelarModal()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/agendamento/cancelar" method="POST">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="agendamento_id" id="cancelar_agendamento_id">
+
+          <p class="mb-md">Tem certeza que deseja cancelar este agendamento?</p>
+
+          <div class="form-group">
+            <label class="form-label" for="motivo_cancelamento">Motivo do Cancelamento *</label>
+            <textarea id="motivo_cancelamento" name="motivo" class="form-textarea" placeholder="Informe o motivo do cancelamento..." required></textarea>
+          </div>
+
+          <div class="flex gap-sm">
+            <button type="button" class="btn btn-secondary btn-full" onclick="closeCancelarModal()">
+              Voltar
+            </button>
+            <button type="submit" class="btn btn-danger btn-full">
+              Confirmar Cancelamento
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .page-description {
+      color: var(--text-muted);
+      margin-top: var(--spacing-xs);
+    }
+
+    .agendamentos-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .agendamento-card {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-md);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--border);
+    }
+
+    .agendamento-pending {
+      border-left-color: var(--warning);
+      background: var(--warning-light);
+    }
+
+    .agendamento-confirmed {
+      border-left-color: var(--success);
+    }
+
+    .agendamento-progress {
+      border-left-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .agendamento-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+    }
+
+    .servicos-table-container {
+      overflow-x: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      .agendamento-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .agendamento-actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+  </style>
+
+  <script>
+    // Serviço Modal
+    function openServicoModal() {
+      document.getElementById('servicoModal').style.display = 'flex';
+    }
+
+    function closeServicoModal() {
+      document.getElementById('servicoModal').style.display = 'none';
+    }
+
+    // Cancelar Modal
+    function cancelarAgendamento(id) {
+      document.getElementById('cancelar_agendamento_id').value = id;
+      document.getElementById('cancelarModal').style.display = 'flex';
+    }
+
+    function closeCancelarModal() {
+      document.getElementById('cancelarModal').style.display = 'none';
+    }
+
+    // Confirmar Agendamento
+    function confirmarAgendamento(id) {
+      if (confirm('Confirmar este agendamento?')) {
+        // Enviar requisição para confirmar
+        window.location.href = '/agendamento/' + id + '/confirmar';
+      }
+    }
+
+    // Concluir Agendamento
+    function concluirAgendamento(id) {
+      if (confirm('Marcar este serviço como concluído?')) {
+        // Enviar requisição para concluir
+        window.location.href = '/agendamento/' + id + '/concluir';
+      }
+    }
+
+    // Close modals on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Serviço - Maridão de Aluguel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          Maridão de Aluguel
+        </a>
+        <nav class="nav">
+          <a href="/dashboard/cliente" class="nav-link">Dashboard</a>
+          <a href="/historico" class="nav-link">Histórico</a>
+          <a href="/chat" class="nav-link">Chat</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container p-xl">
+    <div class="agendamento-container">
+      <h1 class="page-title text-center mb-lg">Agendar Serviço</h1>
+
+      <!-- Stepper -->
+      <div class="stepper">
+        <div class="stepper-item active" data-step="1">
+          <div class="stepper-number">1</div>
+          <span class="stepper-label">Serviço</span>
+        </div>
+        <div class="stepper-line"></div>
+        <div class="stepper-item" data-step="2">
+          <div class="stepper-number">2</div>
+          <span class="stepper-label">Prestador</span>
+        </div>
+        <div class="stepper-line"></div>
+        <div class="stepper-item" data-step="3">
+          <div class="stepper-number">3</div>
+          <span class="stepper-label">Data/Hora</span>
+        </div>
+        <div class="stepper-line"></div>
+        <div class="stepper-item" data-step="4">
+          <div class="stepper-number">4</div>
+          <span class="stepper-label">Confirmação</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Selecionar Categoria e Serviço -->
+      <div class="step-content" id="step-1">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Selecione a Categoria</h2>
+          </div>
+          
+          <div class="categorias-grid">
+            <button class="categoria-card" data-categoria="1" onclick="selectCategoria(this)">
+              <div class="categoria-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <span class="categoria-nome">Elétrica</span>
+              <span class="categoria-count">24 serviços</span>
+            </button>
+
+            <button class="categoria-card" data-categoria="2" onclick="selectCategoria(this)">
+              <div class="categoria-icon" style="background: var(--success-light); color: var(--success);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                </svg>
+              </div>
+              <span class="categoria-nome">Hidráulica</span>
+              <span class="categoria-count">18 serviços</span>
+            </button>
+
+            <button class="categoria-card" data-categoria="3" onclick="selectCategoria(this)">
+              <div class="categoria-icon" style="background: var(--warning-light); color: var(--warning);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 11H5a4 4 0 0 0-4 4v2a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4v-2a4 4 0 0 0-4-4Z"/>
+                  <path d="M12 11V3"/>
+                </svg>
+              </div>
+              <span class="categoria-nome">Pintura</span>
+              <span class="categoria-count">12 serviços</span>
+            </button>
+
+            <button class="categoria-card" data-categoria="4" onclick="selectCategoria(this)">
+              <div class="categoria-icon" style="background: var(--danger-light); color: var(--danger);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+              </div>
+              <span class="categoria-nome">Marcenaria</span>
+              <span class="categoria-count">15 serviços</span>
+            </button>
+
+            <button class="categoria-card" data-categoria="5" onclick="selectCategoria(this)">
+              <div class="categoria-icon" style="background: #fce7f3; color: #db2777;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <span class="categoria-nome">Alvenaria</span>
+              <span class="categoria-count">10 serviços</span>
+            </button>
+
+            <button class="categoria-card" data-categoria="6" onclick="selectCategoria(this)">
+              <div class="categoria-icon" style="background: #d1fae5; color: #059669;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <span class="categoria-nome">Jardinagem</span>
+              <span class="categoria-count">8 serviços</span>
+            </button>
+          </div>
+
+          <!-- Serviços da categoria (aparece após selecionar) -->
+          <div id="servicos-lista" class="mt-xl" style="display: none;">
+            <h3 class="card-title mb-md">Selecione o Serviço</h3>
+            <div class="servicos-lista">
+              <!-- Preenchido dinamicamente -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Selecionar Prestador -->
+      <div class="step-content" id="step-2" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Selecione o Prestador</h2>
+            <div class="flex gap-sm">
+              <select class="form-select" style="width: 150px;">
+                <option>Mais próximos</option>
+                <option>Melhor avaliados</option>
+                <option>Menor preço</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="prestadores-lista">
+            <div class="prestador-card-select" onclick="selectPrestador(this, 1)">
+              <div class="prestador-avatar">JS</div>
+              <div class="prestador-info">
+                <div class="prestador-name">João Silva</div>
+                <div class="prestador-rating">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                  4.9 (52 avaliações)
+                </div>
+                <div class="prestador-meta">5 anos de experiência - 2.3 km de você</div>
+              </div>
+              <div class="prestador-preco">
+                <span class="preco-valor">R$ 120,00</span>
+                <span class="preco-tipo">Preço fixo</span>
+              </div>
+            </div>
+
+            <div class="prestador-card-select" onclick="selectPrestador(this, 2)">
+              <div class="prestador-avatar">CP</div>
+              <div class="prestador-info">
+                <div class="prestador-name">Carlos Pereira</div>
+                <div class="prestador-rating">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                  4.7 (38 avaliações)
+                </div>
+                <div class="prestador-meta">8 anos de experiência - 3.1 km de você</div>
+              </div>
+              <div class="prestador-preco">
+                <span class="preco-valor">R$ 100,00</span>
+                <span class="preco-tipo">Preço fixo</span>
+              </div>
+            </div>
+
+            <div class="prestador-card-select" onclick="selectPrestador(this, 3)">
+              <div class="prestador-avatar">MO</div>
+              <div class="prestador-info">
+                <div class="prestador-name">Marcos Oliveira</div>
+                <div class="prestador-rating">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                  4.8 (45 avaliações)
+                </div>
+                <div class="prestador-meta">10 anos de experiência - 4.5 km de você</div>
+              </div>
+              <div class="prestador-preco">
+                <span class="preco-valor">R$ 150,00</span>
+                <span class="preco-tipo">Preço fixo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-actions mt-lg">
+          <button class="btn btn-secondary" onclick="prevStep()">Voltar</button>
+          <button class="btn btn-primary" onclick="nextStep()" id="btn-step-2" disabled>Continuar</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Selecionar Data e Hora -->
+      <div class="step-content" id="step-3" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Selecione a Data e Horário</h2>
+          </div>
+
+          <div class="datetime-grid">
+            <div class="form-group">
+              <label class="form-label">Data do Serviço</label>
+              <input type="date" id="data_servico" class="form-input" min="" onchange="loadHorarios()">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Horário Disponível</label>
+              <div class="horarios-grid" id="horarios-grid">
+                <p class="text-muted">Selecione uma data primeiro</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group mt-lg">
+            <label class="form-label">Endereço do Serviço</label>
+            <input type="text" class="form-input" id="endereco_servico" value="Rua das Flores, 123 - Centro, São Paulo/SP" placeholder="Endereço completo">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Observações (opcional)</label>
+            <textarea class="form-textarea" id="observacoes" placeholder="Informações adicionais sobre o serviço..."></textarea>
+          </div>
+        </div>
+
+        <div class="step-actions mt-lg">
+          <button class="btn btn-secondary" onclick="prevStep()">Voltar</button>
+          <button class="btn btn-primary" onclick="nextStep()" id="btn-step-3" disabled>Continuar</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Confirmação -->
+      <div class="step-content" id="step-4" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Confirme seu Agendamento</h2>
+          </div>
+
+          <div class="confirmacao-resumo">
+            <div class="resumo-item">
+              <span class="resumo-label">Serviço</span>
+              <span class="resumo-valor" id="resumo-servico">Conserto de Torneira</span>
+            </div>
+            <div class="resumo-item">
+              <span class="resumo-label">Prestador</span>
+              <span class="resumo-valor" id="resumo-prestador">João Silva</span>
+            </div>
+            <div class="resumo-item">
+              <span class="resumo-label">Data e Hora</span>
+              <span class="resumo-valor" id="resumo-data">15/04/2026 às 14:00</span>
+            </div>
+            <div class="resumo-item">
+              <span class="resumo-label">Endereço</span>
+              <span class="resumo-valor" id="resumo-endereco">Rua das Flores, 123 - Centro</span>
+            </div>
+            <div class="resumo-item resumo-total">
+              <span class="resumo-label">Valor Total</span>
+              <span class="resumo-valor" id="resumo-valor">R$ 120,00</span>
+            </div>
+          </div>
+
+          <div class="alert alert-info mt-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            <span>O prestador receberá sua solicitação e confirmará o agendamento em até 24 horas.</span>
+          </div>
+        </div>
+
+        <div class="step-actions mt-lg">
+          <button class="btn btn-secondary" onclick="prevStep()">Voltar</button>
+          <form action="/agendamento" method="POST" style="display: inline;">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="servico_id" id="form_servico_id">
+            <input type="hidden" name="prestador_id" id="form_prestador_id">
+            <input type="hidden" name="data" id="form_data">
+            <input type="hidden" name="horario" id="form_horario">
+            <input type="hidden" name="endereco" id="form_endereco">
+            <input type="hidden" name="observacoes" id="form_observacoes">
+            <button type="submit" class="btn btn-primary btn-lg">
+              Confirmar Agendamento
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .agendamento-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    .categorias-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+    }
+
+    @media (max-width: 768px) {
+      .categorias-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .categoria-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-lg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .categoria-card:hover {
+      border-color: var(--primary);
+    }
+
+    .categoria-card.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .categoria-icon {
+      width: 4rem;
+      height: 4rem;
+      border-radius: var(--radius-lg);
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .categoria-nome {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .categoria-count {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .servicos-lista {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .servico-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-md);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .servico-item:hover {
+      border-color: var(--primary);
+    }
+
+    .servico-item.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .prestadores-lista {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .prestador-card-select {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-lg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .prestador-card-select:hover {
+      border-color: var(--primary);
+    }
+
+    .prestador-card-select.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .prestador-avatar {
+      width: 4rem;
+      height: 4rem;
+      border-radius: var(--radius-full);
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .prestador-info {
+      flex: 1;
+    }
+
+    .prestador-name {
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+
+    .prestador-rating {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      color: var(--warning);
+      font-size: 0.875rem;
+      margin-top: var(--spacing-xs);
+    }
+
+    .prestador-meta {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: var(--spacing-xs);
+    }
+
+    .prestador-preco {
+      text-align: right;
+    }
+
+    .preco-valor {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+    }
+
+    .preco-tipo {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .datetime-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--spacing-lg);
+    }
+
+    @media (max-width: 768px) {
+      .datetime-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .horarios-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-sm);
+    }
+
+    @media (max-width: 640px) {
+      .horarios-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .horario-btn {
+      padding: var(--spacing-sm) var(--spacing-md);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: var(--transition);
+    }
+
+    .horario-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+    }
+
+    .horario-btn.selected {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .horario-btn:disabled {
+      background: var(--background);
+      color: var(--text-light);
+      cursor: not-allowed;
+    }
+
+    .confirmacao-resumo {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .resumo-item {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--spacing-md);
+      background: var(--background);
+      border-radius: var(--radius);
+    }
+
+    .resumo-label {
+      color: var(--text-muted);
+    }
+
+    .resumo-valor {
+      font-weight: 600;
+    }
+
+    .resumo-total {
+      background: var(--primary-light);
+    }
+
+    .resumo-total .resumo-valor {
+      color: var(--primary);
+      font-size: 1.25rem;
+    }
+
+    .step-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .alert {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-md);
+      border-radius: var(--radius);
+    }
+
+    .alert-info {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .alert svg {
+      flex-shrink: 0;
+    }
+  </style>
+
+  <script>
+    let currentStep = 1;
+    let selectedCategoria = null;
+    let selectedServico = null;
+    let selectedPrestador = null;
+    let selectedHorario = null;
+
+    // Sample services data
+    const servicos = {
+      1: [ // Elétrica
+        { id: 1, nome: 'Instalação de Tomadas', preco: 80 },
+        { id: 2, nome: 'Troca de Disjuntor', preco: 120 },
+        { id: 3, nome: 'Instalação de Chuveiro', preco: 100 },
+        { id: 4, nome: 'Reparo Elétrico Geral', preco: 150 }
+      ],
+      2: [ // Hidráulica
+        { id: 5, nome: 'Conserto de Torneira', preco: 80 },
+        { id: 6, nome: 'Desentupimento', preco: 150 },
+        { id: 7, nome: 'Reparo de Vazamento', preco: 120 },
+        { id: 8, nome: 'Instalação de Válvula', preco: 100 }
+      ],
+      3: [ // Pintura
+        { id: 9, nome: 'Pintura de Quarto', preco: 350 },
+        { id: 10, nome: 'Pintura de Sala', preco: 500 },
+        { id: 11, nome: 'Pintura Externa', preco: 800 }
+      ]
+    };
+
+    function selectCategoria(element) {
+      // Remove selection from all
+      document.querySelectorAll('.categoria-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      
+      // Add selection to clicked
+      element.classList.add('selected');
+      selectedCategoria = element.dataset.categoria;
+
+      // Show services
+      const servicosLista = document.getElementById('servicos-lista');
+      const lista = servicosLista.querySelector('.servicos-lista');
+      
+      const categoriasServicos = servicos[selectedCategoria] || [];
+      
+      if (categoriasServicos.length > 0) {
+        lista.innerHTML = categoriasServicos.map(s => `
+          <div class="servico-item" data-servico="${s.id}" data-nome="${s.nome}" data-preco="${s.preco}" onclick="selectServico(this)">
+            <div>
+              <div class="font-semibold">${s.nome}</div>
+              <div class="text-sm text-muted">Preço estimado</div>
+            </div>
+            <div class="font-semibold text-primary">R$ ${s.preco.toFixed(2)}</div>
+          </div>
+        `).join('');
+        servicosLista.style.display = 'block';
+      } else {
+        lista.innerHTML = '<p class="text-muted">Nenhum serviço disponível nesta categoria.</p>';
+        servicosLista.style.display = 'block';
+      }
+    }
+
+    function selectServico(element) {
+      document.querySelectorAll('.servico-item').forEach(item => {
+        item.classList.remove('selected');
+      });
+      element.classList.add('selected');
+      selectedServico = {
+        id: element.dataset.servico,
+        nome: element.dataset.nome,
+        preco: element.dataset.preco
+      };
+      
+      // Go to next step
+      nextStep();
+    }
+
+    function selectPrestador(element, id) {
+      document.querySelectorAll('.prestador-card-select').forEach(card => {
+        card.classList.remove('selected');
+      });
+      element.classList.add('selected');
+      selectedPrestador = {
+        id: id,
+        nome: element.querySelector('.prestador-name').textContent,
+        preco: element.querySelector('.preco-valor').textContent
+      };
+      document.getElementById('btn-step-2').disabled = false;
+    }
+
+    function loadHorarios() {
+      const data = document.getElementById('data_servico').value;
+      if (!data) return;
+
+      const horariosGrid = document.getElementById('horarios-grid');
+      const horarios = ['08:00', '09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'];
+      
+      // Simulate some unavailable times
+      const indisponiveis = ['10:00', '15:00'];
+      
+      horariosGrid.innerHTML = horarios.map(h => `
+        <button type="button" class="horario-btn" ${indisponiveis.includes(h) ? 'disabled' : ''} onclick="selectHorario(this, '${h}')">
+          ${h}
+        </button>
+      `).join('');
+    }
+
+    function selectHorario(element, horario) {
+      document.querySelectorAll('.horario-btn').forEach(btn => {
+        btn.classList.remove('selected');
+      });
+      element.classList.add('selected');
+      selectedHorario = horario;
+      document.getElementById('btn-step-3').disabled = false;
+    }
+
+    function nextStep() {
+      if (currentStep < 4) {
+        document.getElementById('step-' + currentStep).style.display = 'none';
+        currentStep++;
+        document.getElementById('step-' + currentStep).style.display = 'block';
+        
+        // Update stepper
+        updateStepper();
+
+        // If going to confirmation, fill in the summary
+        if (currentStep === 4) {
+          fillConfirmation();
+        }
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        document.getElementById('step-' + currentStep).style.display = 'none';
+        currentStep--;
+        document.getElementById('step-' + currentStep).style.display = 'block';
+        updateStepper();
+      }
+    }
+
+    function updateStepper() {
+      document.querySelectorAll('.stepper-item').forEach((item, index) => {
+        const step = index + 1;
+        item.classList.remove('active', 'completed');
+        if (step < currentStep) {
+          item.classList.add('completed');
+        } else if (step === currentStep) {
+          item.classList.add('active');
+        }
+      });
+
+      document.querySelectorAll('.stepper-line').forEach((line, index) => {
+        line.classList.remove('completed');
+        if (index + 1 < currentStep) {
+          line.classList.add('completed');
+        }
+      });
+    }
+
+    function fillConfirmation() {
+      const data = document.getElementById('data_servico').value;
+      const dataFormatada = new Date(data + 'T00:00:00').toLocaleDateString('pt-BR');
+      
+      document.getElementById('resumo-servico').textContent = selectedServico.nome;
+      document.getElementById('resumo-prestador').textContent = selectedPrestador.nome;
+      document.getElementById('resumo-data').textContent = dataFormatada + ' às ' + selectedHorario;
+      document.getElementById('resumo-endereco').textContent = document.getElementById('endereco_servico').value;
+      document.getElementById('resumo-valor').textContent = selectedPrestador.preco;
+
+      // Fill hidden form fields
+      document.getElementById('form_servico_id').value = selectedServico.id;
+      document.getElementById('form_prestador_id').value = selectedPrestador.id;
+      document.getElementById('form_data').value = data;
+      document.getElementById('form_horario').value = selectedHorario;
+      document.getElementById('form_endereco').value = document.getElementById('endereco_servico').value;
+      document.getElementById('form_observacoes').value = document.getElementById('observacoes').value;
+    }
+
+    // Set minimum date to today
+    document.getElementById('data_servico').min = new Date().toISOString().split('T')[0];
+  </script>
+</body>
+</html>

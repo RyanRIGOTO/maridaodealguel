@@ -20,4 +20,6 @@ class Prestador extends Model
         'status',    
         'password',
     ];
+
+    
 }

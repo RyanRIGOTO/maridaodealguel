@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('prestadors', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
+            $table->string('telefone')->nullable();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('status')->default('ativo');
+            $table->date('data_nascimento')->nullable();
+            $table->string('cpf')->unique()->nullable();
+            $table->string('cnpj')->unique()->nullable();
+            $table->string('areadeatuacao')->nullable();
+            $table->string('disponibilidade')->nullable();
+            $table->foreignId('endereco')->nullable()->constrained('enderecos');
         });
     }
 
