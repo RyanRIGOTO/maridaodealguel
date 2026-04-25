@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClientePrestadorController;
+use App\Http\Controllers\ClienteController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -12,4 +12,4 @@ Route::get('/novo', function () {
     return view('novo');
 })->name('novo');
 
-Route::resource('clientes-prestadores', ClientePrestadorController::class);
+Route::resource('clientes', ClienteController::class);
