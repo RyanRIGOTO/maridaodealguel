@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\ClientePrestador;
+use App\Models\Cliente;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,14 +13,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Cria 5 clientes/prestadores de teste
-        ClientePrestador::factory(5)->create();
+        Cliente::factory(5)->create();
 
         
-        ClientePrestador::create([
-            'name' => 'Ryan Rigoto',
-            'email' => 'ryan@teste.com',
-            'password' => bcrypt('12345678'),
-        ]);
+        //ClientePrestador::create([
+          //  'name' => 'Ryan Rigoto',
+            //'email' => 'ryan@teste.com',
+            //'password' => bcrypt('12345678'),
+        //]);
         
     }
 }

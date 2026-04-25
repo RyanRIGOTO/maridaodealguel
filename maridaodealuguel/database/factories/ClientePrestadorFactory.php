@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class ClientePrestadorFactory extends Factory
 {
-    protected $model = \App\Models\ClientePrestador::class;
+    protected $model = \App\Models\Cliente::class;
 
     public function definition(): array
     {

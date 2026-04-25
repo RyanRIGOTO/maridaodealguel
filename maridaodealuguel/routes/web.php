@@ -8,5 +8,8 @@ use App\Http\Controllers\ClientePrestadorController;
 // });
 
 //Route::resource('clientes-prestadores', 'App\Http\Controllers\ClientePrestadorController');  
+Route::get('/novo', function () {
+    return view('novo');
+})->name('novo');
 
 Route::resource('clientes-prestadores', ClientePrestadorController::class);
