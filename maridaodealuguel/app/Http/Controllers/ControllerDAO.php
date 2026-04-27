@@ -1,20 +1,15 @@
 <?php
 
-namespace App\Models;
-
+namespace App\Http\Controllers;
+use App\Models\Cliente;
+use App\Models\Prestador;
 use Illuminate\Database\Eloquent\Model;
-
-class recebimento extends Model
+class ControllerMaster extends Model
 {
-    protected $table = 'recebimentos';
+    protected $table = 'clientes_prestadores';   // nome da tabela no banco
 
     protected $fillable = [
-        'id',
-        'cliente_id',
-        'prestador_id',
-        'valor',
-        'data_pagamento',
-        'status',
+        'name', 'email', 'password', // adicione outros campos que você tem
     ];
 
     public function cliente()
