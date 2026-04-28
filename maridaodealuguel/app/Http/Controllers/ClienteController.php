@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use ControllerDAO;
 use Illuminate\Http\Request;
 
-class ClienteController
+class ClienteController extends ControllerDAO
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +21,7 @@ class ClienteController
      */
     public function create()
     {
-        //
+        return view('clientes.create');
     }
 
     /**
@@ -28,7 +29,12 @@ class ClienteController
      */
     public function store(Request $request)
     {
-        //
+        $cliente = Cliente::create([
+            'nome' => $request->nome,
+            'email' => $request->email,
+        ]);
+
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -50,9 +56,9 @@ class ClienteController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cliente $cliente)
-    {
-        //
+    public function update()
+    {  
+           
     }
 
     /**

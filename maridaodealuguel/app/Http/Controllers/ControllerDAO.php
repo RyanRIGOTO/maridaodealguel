@@ -1,24 +1,38 @@
 <?php
-
-namespace App\Http\Controllers;
-use App\Models\Cliente;
-use App\Models\Prestador;
-use Illuminate\Database\Eloquent\Model;
-class ControllerMaster extends Model
+abstract class ControllerDAO
 {
-    protected $table = 'clientes_prestadores';   // nome da tabela no banco
+    protected $conn;
+    protected $table;
 
-    protected $fillable = [
-        'name', 'email', 'password', // adicione outros campos que você tem
-    ];
-
-    public function cliente()
-    {
-        return $this->belongsTo(Cliente::class, 'cliente_id');
+    public function __construct($connection) {
+        $this->conn = $connection;
     }
 
-    public function prestador()
-    {
-        return $this->belongsTo(Prestador::class, 'prestador_id');
+    public function create() {
+        
+    }
+
+    public function findById($id) {
+        $sql = "SELECT * FROM {$this->table} WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function update() {
+        // implementar conforme necessidade
+    }
+
+    public function delete($id) {
+        $sql = "DELETE FROM {$this->table} WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
+
+    public function listAll() {
+        $sql = "SELECT * FROM {$this->table}";
+        return $this->conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 }
