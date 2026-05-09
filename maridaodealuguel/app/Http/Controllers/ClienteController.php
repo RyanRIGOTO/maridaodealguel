@@ -6,14 +6,15 @@ use App\Models\Cliente;
 use ControllerDAO;
 use Illuminate\Http\Request;
 
-class ClienteController extends ControllerDAO
+class ClienteController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $clientes = Cliente::all();
+        return view('clientes.index', compact('clientes'));
     }
 
     /**
